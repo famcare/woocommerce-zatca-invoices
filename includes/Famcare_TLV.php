@@ -1,5 +1,6 @@
 <?php
-include 'salla_zatca/vendor/autoload.php';
+require(untrailingslashit(dirname(__FILE__)) . '/salla_zatca/vendor/autoload.php');
+
 use Salla\ZATCA\GenerateQrCode;
 use Salla\ZATCA\Tags\InvoiceDate;
 use Salla\ZATCA\Tags\InvoiceTaxAmount;
@@ -23,7 +24,7 @@ class Famcare_TLV_QR
 			// TODO :: Support others tags
 		])->render(['imageTransparent'    => false]);
 
-		return $this->save_image($QR_Image,$OrderID);
+		return self::save_image($QR_Image,$OrderID);
 	}
 
 	/**

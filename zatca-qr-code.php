@@ -28,4 +28,9 @@ if (
 	 * Create settings tab.
 	 */
 	include_once(untrailingslashit(dirname(__FILE__)) . '/includes/settings.php');
+
+	/*
+	 * Functions & Actions
+	 */
+	include_once(untrailingslashit(dirname(__FILE__)) . '/includes/functions.php');
 }
