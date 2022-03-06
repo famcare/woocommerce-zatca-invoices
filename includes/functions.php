@@ -74,6 +74,7 @@ function famcare_rest_prepare_shop_order_object( WP_REST_Response $response ){
 	$_qr_code_image_url = famcare_get_zatca_qr_code($response->data['id']);
 	if($_qr_code_image_url){
 		$response->data['qr_code'] = $_qr_code_image_url;
-	}
+	} else
+		$response->data['qr_code'] = wc_placeholder_img_src();
 }
 add_filter( 'woocommerce_rest_prepare_shop_order_object', 'famcare_rest_prepare_shop_order_object', 10, 1 );
