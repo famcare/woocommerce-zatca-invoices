@@ -79,6 +79,11 @@ function famcare_rest_prepare_shop_order_object( WP_REST_Response $response ){
 }
 add_filter( 'woocommerce_rest_prepare_shop_order_object', 'famcare_rest_prepare_shop_order_object', 10, 1 );
 
+/**
+ * Add qr code to user dashboard order view
+ * @param int $order_id
+ * @return void
+ */
 function famcare_add_qr_to_user_dashboard( int $order_id ){
 	$_qr_code_image_url = famcare_get_zatca_qr_code($order_id);
 	if($_qr_code_image_url){
