@@ -1,9 +1,10 @@
 <?php
 /**
  * Create QR code after order payment completed
+ * @param int $order_id
+ * @return void
  */
-add_action( 'woocommerce_order_status_processing', 'famcare_generate_qr_code', 10, 1 );
-function famcare_generate_qr_code( $order_id ) {
+function famcare_generate_qr_code( int $order_id ) {
 	// Do nothing if its already created.
 	$_qr_code_image_id = get_post_meta($order_id,'_qr_code_image_id',true);
 	if($_qr_code_image_id != '')
@@ -27,11 +28,14 @@ function famcare_generate_qr_code( $order_id ) {
 
 	(new Famcare_TLV_QR)->generateTLVImage($order_id,$order_date,$order_total,$order_tax);
 }
+add_action( 'woocommerce_order_status_processing', 'famcare_generate_qr_code', 10, 1 );
 
 /**
  * Add QR Code to PDF invoice
  * Print Invoice & Delivery Notes for WooCommerce Plugin
  * https://wordpress.org/plugins/woocommerce-delivery-notes/
+ * @param WC_Order $order
+ * @return void
  */
 function famcare_wcdn_after_branding( WC_Order $order ){
 	$_qr_code_image_id = get_post_meta($order->get_id(),'_qr_code_image_id',true);
@@ -45,3 +49,17 @@ function famcare_wcdn_after_branding( WC_Order $order ){
 	}
 }
 add_action( 'wcdn_after_branding', 'famcare_wcdn_after_branding', 10, 1 );
+
+/**
+ * @param WP_REST_Response $response
+ * @return void
+ */
+function famcare_rest_prepare_shop_order_object( WP_REST_Response $response ){
+	//TLV QR code.
+	$_qr_code_image_id = get_post_meta($response->data['id'],'_qr_code_image_id',true);
+	$_qr_code_image_url = wp_get_attachment_url($_qr_code_image_id);
+	if($_qr_code_image_url && $_qr_code_image_id != ''){
+		$response->data['qr_code'] = $_qr_code_image_url;
+	}
+}
+add_filter( 'woocommerce_rest_prepare_shop_order_object', 'famcare_rest_prepare_shop_order_object', 10, 1 );
