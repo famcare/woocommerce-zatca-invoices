@@ -31,6 +31,21 @@ function famcare_generate_qr_code( int $order_id ) {
 add_action( 'woocommerce_order_status_processing', 'famcare_generate_qr_code', 10, 1 );
 
 /**
+ * Get QR code image link
+ * @param int $order_id
+ * @return false|string
+ */
+function famcare_get_zatca_qr_code( int $order_id ){
+	$_qr_code_image_id = get_post_meta($order_id,'_qr_code_image_id',true);
+	$_qr_code_image_url = wp_get_attachment_url($_qr_code_image_id);
+
+    if($_qr_code_image_url && $_qr_code_image_url != '')
+        return $_qr_code_image_url;
+    else
+        return false;
+}
+
+/**
  * Add QR Code to PDF invoice
  * Print Invoice & Delivery Notes for WooCommerce Plugin
  * https://wordpress.org/plugins/woocommerce-delivery-notes/
@@ -38,9 +53,8 @@ add_action( 'woocommerce_order_status_processing', 'famcare_generate_qr_code', 1
  * @return void
  */
 function famcare_wcdn_after_branding( WC_Order $order ){
-	$_qr_code_image_id = get_post_meta($order->get_id(),'_qr_code_image_id',true);
-	$_qr_code_image_url = wp_get_attachment_url($_qr_code_image_id);
-	if($_qr_code_image_url && $_qr_code_image_id != ''){
+	$_qr_code_image_url = famcare_get_zatca_qr_code($order->get_id());
+	if($_qr_code_image_url){
 		?>
 		<div class="invoice-QR">
 			<img src="<?php echo $_qr_code_image_url;?>" alt="QR Code" width="100px">
@@ -57,9 +71,8 @@ add_action( 'wcdn_after_branding', 'famcare_wcdn_after_branding', 10, 1 );
  */
 function famcare_rest_prepare_shop_order_object( WP_REST_Response $response ){
 	//TLV QR code.
-	$_qr_code_image_id = get_post_meta($response->data['id'],'_qr_code_image_id',true);
-	$_qr_code_image_url = wp_get_attachment_url($_qr_code_image_id);
-	if($_qr_code_image_url && $_qr_code_image_id != ''){
+	$_qr_code_image_url = famcare_get_zatca_qr_code($response->data['id']);
+	if($_qr_code_image_url){
 		$response->data['qr_code'] = $_qr_code_image_url;
 	}
 }
