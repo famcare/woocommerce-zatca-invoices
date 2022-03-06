@@ -6,7 +6,7 @@
 ![Your Repository's Stats](https://contrib.rocks/image?repo=famcare/WooCommerce-ZATCA-QR-invoice)
 
 ## About ZATCA QR Invoice for WooCommerce
-An open-source initiative that belongs to [Famcare.app](https://famcare.app), Allow WooCommerce stores to issue ZATCA QR invoices.
+An open-source plugin that belongs to [Famcare.app](https://famcare.app), Allow WooCommerce stores to issue ZATCA QR invoices.
 
 ## Getting Started
 - [Download the latest version](https://github.com/famcare/WooCommerce-ZATCA-QR-invoice/archive/refs/heads/main.zip)
