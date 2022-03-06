@@ -1,5 +1,5 @@
 <?php
-require(untrailingslashit(dirname(__FILE__)) . '../vendor/autoload.php');
+require(untrailingslashit(dirname(__FILE__)) . '/../vendor/autoload.php');
 
 use Salla\ZATCA\GenerateQrCode;
 use Salla\ZATCA\Tags\InvoiceDate;
