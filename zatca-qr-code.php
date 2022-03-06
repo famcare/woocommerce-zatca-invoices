@@ -11,7 +11,7 @@
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
  * Requires at least: 5.6
- * Requires PHP: 7.2
+ * Requires PHP: 7.4
  *
  */
 
