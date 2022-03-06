@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: ZATCA QR Invoice for WooCommerce
- * Plugin URI: https://github.com/famcare/WooCommerce-ZATCA-QR-invoice
+ * Plugin URI: https://github.com/famcare/woocommerce-zatca-invoices
  * Description: An open-source plugin that belongs to Famcare.app, Allow WooCommerce stores to issue ZATCA QR invoices.
  * Version: 1.0.0
  * Author: Abdalsalaam Halawa @ Famcare.app

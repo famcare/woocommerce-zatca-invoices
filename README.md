@@ -1,15 +1,15 @@
-[![GitHub PR](https://img.shields.io/github/issues-pr/famcare/WooCommerce-ZATCA-QR-invoice)](https://github.com/famcare/WooCommerce-ZATCA-QR-invoice)
+[![GitHub PR](https://img.shields.io/github/issues-pr/famcare/woocommerce-zatca-invoices)](https://github.com/famcare/woocommerce-zatca-invoices)
 
 ## Contributors
-[![GitHub Contributors](https://img.shields.io/github/contributors/famcare/WooCommerce-ZATCA-QR-invoice)](https://github.com/famcare/WooCommerce-ZATCA-QR-invoice)
+[![GitHub Contributors](https://img.shields.io/github/contributors/famcare/woocommerce-zatca-invoices)](https://github.com/famcare/woocommerce-zatca-invoices)
 
-![Your Repository's Stats](https://contrib.rocks/image?repo=famcare/WooCommerce-ZATCA-QR-invoice)
+![Your Repository's Stats](https://contrib.rocks/image?repo=famcare/woocommerce-zatca-invoices)
 
 ## About ZATCA QR Invoice for WooCommerce
 An open-source plugin that belongs to [Famcare.app](https://famcare.app), Allow WooCommerce stores to issue ZATCA QR invoices.
 
 ## Getting Started
-- [Download the latest version](https://github.com/famcare/WooCommerce-ZATCA-QR-invoice/archive/refs/heads/main.zip)
+- [Download the latest version](https://github.com/famcare/woocommerce-zatca-invoices/archive/refs/heads/main.zip)
 - Install and active it!
 - Go to WooCommerce > Settings > General > ZATCA, fill the seller name and tax number.
 - 

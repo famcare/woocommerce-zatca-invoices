@@ -16,7 +16,7 @@ function famcare_generate_qr_code( int $order_id ) {
 		return;
 
 	// Load TLV QR generator
-	require(untrailingslashit(dirname(__FILE__)) . '/Famcare_TLV.php');
+	require(untrailingslashit(dirname(__FILE__)) . '/famcare_TLV.php');
 
 	/*
 	 * Get Order info.
