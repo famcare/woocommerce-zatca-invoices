@@ -51,6 +51,7 @@ function famcare_wcdn_after_branding( WC_Order $order ){
 add_action( 'wcdn_after_branding', 'famcare_wcdn_after_branding', 10, 1 );
 
 /**
+ * Add QR Code to WooCommerce Rest API order object
  * @param WP_REST_Response $response
  * @return void
  */
